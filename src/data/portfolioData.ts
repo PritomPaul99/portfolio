@@ -15,6 +15,7 @@ export const personalInfo = {
 };
 
 export const researchInterests = [
+  "Machine Learning",
   "Deep Learning",
   "Large Language Model (LLM)",
   "Natural Language Processing (NLP)",
@@ -61,9 +62,10 @@ export const education = [
 ];
 
 export const currentResearch = {
-  title: "Advanced Natural Language Processing for Bangla Text",
+  title:
+    "Decoding Bangla Handwriting: Leveraging Transformers and Self-Attention for Advanced Text Recognition",
   description:
-    "Currently exploring advanced NLP techniques and transformer architectures for Bangla language processing, with a focus on improving text generation and understanding capabilities for low-resource languages.",
+    "This research aims to advance Bangla handwritten text recognition by leveraging Transformer architectures and self-attention mechanisms to overcome the limitations of traditional CNN and RNN models. By focusing on the complex, cursive nature of Bangla script, the study proposes a method to effectively capture long-range dependencies and spatial relationships for improved accuracy. The goal is to develop a robust, data-efficient solution that facilitates the digitization of documents in low-resource languages.",
   status: "Ongoing",
   startDate: "January 2025",
 };
