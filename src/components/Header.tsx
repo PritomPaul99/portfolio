@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { ThemeToggle } from "./ThemeToggle";
+import { MobileMenu } from "./MobileMenu.tsx";
 import { personalInfo } from "@/data/portfolioData";
 import { cn } from "@/lib/utils";
 
@@ -61,11 +62,14 @@ export const Header = () => {
           : "bg-transparent"
       )}
     >
-      <div className="container mx-auto px-4 py-4">
+      <div className="container mx-auto px-4 py-3 md:py-4">
         <div className="flex items-center justify-between">
-          <div className="text-xl font-bold text-foreground">
+          <button
+            onClick={() => scrollToSection("home")}
+            className="text-lg md:text-xl font-bold text-foreground hover:text-primary transition-colors"
+          >
             {personalInfo.name}
-          </div>
+          </button>
 
           <nav className="hidden md:flex items-center gap-1">
             {navItems.map((item) => (
@@ -84,7 +88,13 @@ export const Header = () => {
             ))}
           </nav>
 
-          <ThemeToggle />
+          <div className="flex items-center gap-2">
+            <ThemeToggle />
+            <MobileMenu
+              activeSection={activeSection}
+              onNavigate={scrollToSection}
+            />
+          </div>
         </div>
       </div>
     </header>

@@ -8,123 +8,88 @@ import { Label } from "@/components/ui/label";
 import { Mail, Phone, MapPin, Github, Linkedin, Send } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
-// NOTE: To use real emails in your local project:
-// 1. Run: npm install @emailjs/browser
-// 2. Uncomment the import below:
-// import emailjs from '@emailjs/browser';
-
 export const ContactSection = () => {
   const { toast } = useToast();
-  // const formRef = useRef(); // Uncomment for EmailJS
-
   const [formData, setFormData] = useState({
-    user_name: "",
-    user_email: "",
+    name: "",
+    email: "",
     subject: "",
     message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  // --- CONFIGURATION REQUIRED FOR REAL EMAILS ---
-  // const SERVICE_ID = "YOUR_SERVICE_ID";
-  // const TEMPLATE_ID = "YOUR_TEMPLATE_ID";
-  // const PUBLIC_KEY = "YOUR_PUBLIC_KEY";
-  // ----------------------------------------------
-
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // --- SIMULATION MODE (For Preview) ---
-    // Since we cannot use external libraries like emailjs in this preview,
-    // we are simulating a successful send.
+    // For now, we'll show a toast message
+    // To make this functional, you'll need to set up a backend endpoint
     setTimeout(() => {
       toast({
-        title: "Message Sent (Simulation)",
-        description: "In a real app, this would send an email via EmailJS.",
+        title: "Message Sent!",
+        description: "Thank you for your message. I'll get back to you soon.",
       });
-      setFormData({ user_name: "", user_email: "", subject: "", message: "" });
+      setFormData({ name: "", email: "", subject: "", message: "" });
       setIsSubmitting(false);
-    }, 1500);
+    }, 1000);
+  };
 
-    // --- REAL IMPLEMENTATION (Uncomment in your project) ---
-    /*
-    emailjs
-      .sendForm(
-        SERVICE_ID,
-        TEMPLATE_ID,
-        formRef.current,
-        {
-          publicKey: PUBLIC_KEY,
-        }
-      )
-      .then(
-        () => {
-          toast({
-            title: "Message Sent!",
-            description: "Thank you for your message. I'll get back to you soon.",
-          });
-          setFormData({ user_name: "", user_email: "", subject: "", message: "" });
-          setIsSubmitting(false);
-        },
-        (error) => {
-          console.error("FAILED...", error.text);
-          toast({
-            title: "Failed to send",
-            description: "Something went wrong. Please try emailing me directly.",
-            variant: "destructive",
-          });
-          setIsSubmitting(false);
-        }
-      );
-    */
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   return (
-    <section id="contact" className="min-h-screen pt-24 pb-16 bg-background">
+    <section
+      id="contact"
+      className="min-h-screen pt-20 md:pt-24 pb-12 md:pb-16"
+    >
       <div className="container mx-auto px-4">
-        <h2 className="text-4xl font-bold text-foreground mb-12 text-center">
+        <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-8 md:mb-12 text-center">
           Get In Touch
         </h2>
 
-        <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-8">
+        <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-6 md:gap-8">
           {/* Contact Information */}
-          <div className="space-y-6">
-            <Card className="p-6">
-              <h3 className="text-2xl font-bold text-foreground mb-6">
+          <div className="space-y-4 md:space-y-6">
+            <Card className="p-4 sm:p-6">
+              <h3 className="text-xl sm:text-2xl font-bold text-foreground mb-4 md:mb-6">
                 Contact Information
               </h3>
-              <div className="space-y-4">
+              <div className="space-y-3 md:space-y-4">
                 <div className="flex items-start gap-3">
-                  <Mail className="w-5 h-5 text-primary mt-1" />
-                  <div>
-                    <p className="font-semibold text-foreground">Email</p>
+                  <Mail className="w-4 h-4 sm:w-5 sm:h-5 text-primary mt-1 flex-shrink-0" />
+                  <div className="min-w-0 flex-1">
+                    <p className="font-semibold text-sm sm:text-base text-foreground">
+                      Email
+                    </p>
                     <a
                       href={`mailto:${personalInfo.email}`}
-                      className="text-muted-foreground hover:text-primary transition-colors"
+                      className="text-xs sm:text-sm md:text-base text-muted-foreground hover:text-primary transition-colors break-all"
                     >
                       {personalInfo.email}
                     </a>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
-                  <Phone className="w-5 h-5 text-primary mt-1" />
+                  <Phone className="w-4 h-4 sm:w-5 sm:h-5 text-primary mt-1 flex-shrink-0" />
                   <div>
-                    <p className="font-semibold text-foreground">Phone</p>
-                    <p className="text-muted-foreground">
+                    <p className="font-semibold text-sm sm:text-base text-foreground">
+                      Phone
+                    </p>
+                    <p className="text-xs sm:text-sm md:text-base text-muted-foreground">
                       {personalInfo.phone}
                     </p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
-                  <MapPin className="w-5 h-5 text-primary mt-1" />
+                  <MapPin className="w-4 h-4 sm:w-5 sm:h-5 text-primary mt-1 flex-shrink-0" />
                   <div>
-                    <p className="font-semibold text-foreground">Location</p>
-                    <p className="text-muted-foreground">
+                    <p className="font-semibold text-sm sm:text-base text-foreground">
+                      Location
+                    </p>
+                    <p className="text-xs sm:text-sm md:text-base text-muted-foreground">
                       {personalInfo.location}
                     </p>
                   </div>
@@ -132,65 +97,76 @@ export const ContactSection = () => {
               </div>
             </Card>
 
-            <Card className="p-6">
-              <h3 className="text-2xl font-bold text-foreground mb-6">
+            <Card className="p-4 sm:p-6">
+              <h3 className="text-xl sm:text-2xl font-bold text-foreground mb-4 md:mb-6">
                 Social Media
               </h3>
-              <div className="space-y-3">
+              <div className="space-y-2 md:space-y-3">
                 <a
                   href={socialLinks.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-3 p-3 rounded-lg hover:bg-accent transition-colors"
+                  className="flex items-center gap-3 p-3 rounded-lg hover:bg-accent transition-colors touch-manipulation"
                 >
-                  <Github className="w-5 h-5 text-primary" />
-                  <span className="text-foreground font-medium">GitHub</span>
+                  <Github className="w-4 h-4 sm:w-5 sm:h-5 text-primary flex-shrink-0" />
+                  <span className="text-sm sm:text-base text-foreground font-medium">
+                    GitHub
+                  </span>
                 </a>
                 <a
                   href={socialLinks.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-3 p-3 rounded-lg hover:bg-accent transition-colors"
+                  className="flex items-center gap-3 p-3 rounded-lg hover:bg-accent transition-colors touch-manipulation"
                 >
-                  <Linkedin className="w-5 h-5 text-primary" />
-                  <span className="text-foreground font-medium">LinkedIn</span>
+                  <Linkedin className="w-4 h-4 sm:w-5 sm:h-5 text-primary flex-shrink-0" />
+                  <span className="text-sm sm:text-base text-foreground font-medium">
+                    LinkedIn
+                  </span>
                 </a>
               </div>
             </Card>
           </div>
 
           {/* Contact Form */}
-          <Card className="p-6">
-            <h3 className="text-2xl font-bold text-foreground mb-6">
+          <Card className="p-4 sm:p-6">
+            <h3 className="text-xl sm:text-2xl font-bold text-foreground mb-4 md:mb-6">
               Send Me a Message
             </h3>
-            {/* ref={formRef} would go here for EmailJS */}
-            <form onSubmit={handleSubmit} className="space-y-4">
+            <form onSubmit={handleSubmit} className="space-y-3 md:space-y-4">
               <div>
-                <Label htmlFor="user_name">Name</Label>
+                <Label htmlFor="name" className="text-sm sm:text-base">
+                  Name
+                </Label>
                 <Input
-                  id="user_name"
-                  name="user_name"
-                  value={formData.user_name}
+                  id="name"
+                  name="name"
+                  value={formData.name}
                   onChange={handleChange}
                   required
                   placeholder="Your name"
+                  className="mt-1 touch-manipulation"
                 />
               </div>
               <div>
-                <Label htmlFor="user_email">Email</Label>
+                <Label htmlFor="email" className="text-sm sm:text-base">
+                  Email
+                </Label>
                 <Input
-                  id="user_email"
-                  name="user_email"
+                  id="email"
+                  name="email"
                   type="email"
-                  value={formData.user_email}
+                  value={formData.email}
                   onChange={handleChange}
                   required
                   placeholder="your.email@example.com"
+                  className="mt-1 touch-manipulation"
                 />
               </div>
               <div>
-                <Label htmlFor="subject">Subject</Label>
+                <Label htmlFor="subject" className="text-sm sm:text-base">
+                  Subject
+                </Label>
                 <Input
                   id="subject"
                   name="subject"
@@ -198,10 +174,13 @@ export const ContactSection = () => {
                   onChange={handleChange}
                   required
                   placeholder="What is this about?"
+                  className="mt-1 touch-manipulation"
                 />
               </div>
               <div>
-                <Label htmlFor="message">Message</Label>
+                <Label htmlFor="message" className="text-sm sm:text-base">
+                  Message
+                </Label>
                 <Textarea
                   id="message"
                   name="message"
@@ -210,11 +189,13 @@ export const ContactSection = () => {
                   required
                   placeholder="Your message here..."
                   rows={6}
+                  className="mt-1 touch-manipulation resize-none"
                 />
               </div>
               <Button
                 type="submit"
-                className="w-full gap-2"
+                className="w-full gap-2 touch-manipulation"
+                size="lg"
                 disabled={isSubmitting}
               >
                 <Send className="w-4 h-4" />

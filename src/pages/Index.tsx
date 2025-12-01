@@ -20,9 +20,11 @@ const Index = () => {
         <CVSection />
         <ContactSection />
       </main>
-      <footer className="bg-primary text-primary-foreground py-6">
+      <footer className="bg-primary text-primary-foreground py-4 md:py-6">
         <div className="container mx-auto px-4 text-center">
-          <p>© {new Date().getFullYear()} Pritom Paul. All rights reserved.</p>
+          <p className="text-sm sm:text-base">
+            © {new Date().getFullYear()} Pritom Paul. All rights reserved.
+          </p>
         </div>
       </footer>
     </div>
