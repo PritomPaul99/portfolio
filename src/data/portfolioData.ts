@@ -167,6 +167,24 @@ export const volunteerExperience = [
 
 export const competitiveProgramming = [
   {
+    competition: "SUST IUPC",
+    year: "2024",
+    team: "NEUB_Believers",
+    achievement: "National Participant",
+  },
+  {
+    competition: "CUET IUPC",
+    year: "2024",
+    team: "NEUB_Believers",
+    achievement: "National Participant",
+  },
+  {
+    competition: "IUT IUPC",
+    year: "2024",
+    team: "NEUB_Believers",
+    achievement: "National Participant",
+  },
+  {
     competition: "ICPC Asia Dhaka Regional Contest",
     year: "2023",
     team: "NEUB_Believers",
@@ -176,6 +194,12 @@ export const competitiveProgramming = [
     competition: "NCPC ONSITE",
     year: "2023",
     team: "NEUB_Believers",
+    achievement: "National Participant",
+  },
+  {
+    competition: "SUST IUPC",
+    year: "2023",
+    team: "NEUB_Team_Xero",
     achievement: "National Participant",
   },
   {
@@ -244,7 +268,7 @@ export const cvStatistics = [
     label: "ICPC Participations",
   },
   {
-    value: "5+",
+    value: "8+", // Updated from 5+
     label: "National Level Contest Participations",
   },
   {
