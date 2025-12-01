@@ -11,7 +11,7 @@ export const personalInfo = {
   phone: "(+880) 1718382009",
   github: "PritomPaul99",
   linkedin: "pritompaul1920",
-  introduction: `I am an Adjunct Faculty at North East University Bangladesh, specializing in Computer Science and Engineering. With a strong foundation in software engineering and machine learning, I am passionate about teaching, research, and competitive programming. My work focuses on Deep Learning, Natural Language Processing, and Computer Vision.`,
+  introduction: `I am an Adjunct Faculty in the Department of Computer Science and Engineering at North East University Bangladesh. With a strong foundation in machine learning and software engineering, I am passionate about teaching, research, and competitive programming. My work focuses on Deep Learning, Natural Language Processing, and Computer Vision.`,
 };
 
 export const researchInterests = [
@@ -22,6 +22,7 @@ export const researchInterests = [
   "Artificial Intelligence (AI)",
   "Computer Vision (CV)",
   "Big Data Analysis",
+  
 ];
 
 export const currentCourses = [
