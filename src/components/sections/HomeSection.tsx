@@ -106,7 +106,7 @@ export const HomeSection = () => {
         {/* Current Teaching */}
         <Card className="p-4 sm:p-6 md:p-8">
           <h2 className="text-xl sm:text-2xl font-bold text-foreground mb-3 md:mb-4">
-            Current Courses Teaching
+            Teaching
           </h2>
           <div className="space-y-4 md:space-y-6">
             {currentCourses.map((semesterData, semesterIndex) => (
