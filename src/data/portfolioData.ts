@@ -277,6 +277,6 @@ export const cvStatistics = [
   },
 ];
 
-export const professionalSummary = `Computer Science graduate with expertise in software engineering, machine learning, and education. Currently serving as Adjunct Faculty teaching 200+ students while exploring cutting-edge research in Natural Language Processing. Full-stack engineer with experience in building scalable web applications and real-time communication systems.`;
+export const professionalSummary = `Computer Science graduate and Adjunct Faculty with hands-on experience in both teaching, Machine Learning and software development. I currently teach core Computer Science and Engineering courses to large undergraduate classes, focusing on clear explanations and strong fundamentals. Alongside teaching, I work on machine learning problems, with a growing research interest in deep learning, natural language processing, and large language models. I also have practical experience as a full-stack developer, building scalable web applications and real-time systems, which helps me connect theory with practice in the classroom and beyond.`;
 
-export const cvQuote = `Passionate about leveraging artificial intelligence to solve real-world problems and committed to nurturing the next generation of computer scientists through quality education and mentorship.`;
+export const cvQuote = `"Beginnings are scary, endings are usually sad, but it's the middle that counts the most. Try to remember that when you find yourself at a new beginning. Just give hope a chance to float up." —Hope Floats`;
