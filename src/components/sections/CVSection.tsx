@@ -148,7 +148,7 @@ export const CVSection = () => {
           {/* Quote */}
           <Card className="p-4 sm:p-6 md:p-8 border-l-4 border-l-primary bg-accent/20">
             <p className="text-xs sm:text-sm md:text-base text-muted-foreground italic leading-relaxed">
-              "{cvQuote}"
+              {cvQuote}
             </p>
           </Card>
         </div>
